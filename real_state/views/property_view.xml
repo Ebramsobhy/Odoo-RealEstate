@@ -1,7 +1,7 @@
 <odoo>
    
     <record id="property_action" model="ir.actions.act_window">
-        <field name="name">property action</field>
+        <field name="name">Property</field>
         <field name="res_model">property</field>
     </record>
 
@@ -26,6 +26,43 @@
                 <field name="bedrooms" optional="1"/>
                  <field name="garage" optional="1"/>
              </tree>
+        </field>
+    </record>
+
+     <record id="property_form_view" model="ir.ui.view">
+        <field name="name">property form</field>
+        <field name="model">property</field>
+        <field name="arch" type="xml">
+             <form>
+                  <sheet>
+                       <div class="title">
+                          <label for="name"/>
+                          <h1>
+                             <field name="name"/>
+                          </h1>
+                       </div>
+                     <group>
+                         <group string="General Info">
+                             <field name="date_availability"/>
+                             <field name="postcode"/>
+                             <field name="expected_price"/>
+                             <field name="selling_price"/>
+                             <field name="bedrooms"/>
+                             <field name="living_area"/>
+                             <field name="facades"/>
+                         </group>
+                         <group string="Additional Info">
+                             <field name="garden"/>
+                             <field name="garden_area"/>
+                             <field name="garden_orientation"/>
+                             <field name="garage"/>
+                         </group>
+                         <group>
+                             <field name="description"/>
+                         </group>
+                     </group>
+                  </sheet>
+             </form>
         </field>
     </record>
 
