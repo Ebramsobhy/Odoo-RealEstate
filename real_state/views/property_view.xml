@@ -18,6 +18,7 @@
         <field name="arch" type="xml">
              <tree>
                 <field name="name"/>
+                <field name="postcode"/>
                 <field name="date_availability"/>
                 <field name="selling_price"/>
                 <field name="garden"/>
@@ -26,6 +27,20 @@
                 <field name="bedrooms" optional="1"/>
                  <field name="garage" optional="1"/>
              </tree>
+        </field>
+    </record>
+
+    <record id="property_search_view" model="ir.ui.view">
+        <field name="name">property search</field>
+        <field name="model">property</field>
+        <field name="arch" type="xml">
+             <search>
+                 <field name="name"/>
+                 <field name="postcode"/>
+                 <filter name="is_garden" string="With Garden" domain="[('garden', '=', True)]"/>
+                 <filter name="is_garden" string="Without Garden" domain="[('garden', '=', False)]"/>
+                 <filter name="group_garden" string="Garden" context="{'group_by': 'garden'}"/>
+             </search>
         </field>
     </record>
 
